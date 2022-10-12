@@ -3,9 +3,9 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { SharedModule } from '@shared';
 import { CommentListComponent } from './comment-list.component';
-import { QuoteService } from '../quote.service';
+import { CommentsService } from '../comments.service';
 
-describe('HomeComponent', () => {
+describe('CommentListComponent', () => {
   let component: CommentListComponent;
   let fixture: ComponentFixture<CommentListComponent>;
 
@@ -16,7 +16,7 @@ describe('HomeComponent', () => {
           HttpClientTestingModule
         ],
         declarations: [CommentListComponent],
-        providers: [QuoteService]
+        providers: [CommentsService]
       })
       .compileComponents();
   }));

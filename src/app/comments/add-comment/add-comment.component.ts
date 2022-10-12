@@ -16,7 +16,7 @@ export class AddCommentComponent {
 
   loggedInUser: User;
 
-  constructor(private auth: AuthService, @Optional() public dialogRef: MatDialogRef<AddCommentComponent>,  @Inject(MAT_DIALOG_DATA) public data: any) {
+  constructor(private auth: AuthService, @Optional() public dialogRef: MatDialogRef<AddCommentComponent>,  @Optional() @Inject(MAT_DIALOG_DATA) public data: any) {
     this.loggedInUser = auth.loggedInUser;
    }
 

@@ -3,12 +3,22 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { SharedModule } from '@shared';
 import { AddCommentComponent } from './add-comment.component';
-import { QuoteService } from '../quote.service';
+import { CommentsService } from '../comments.service';
+import { AuthService } from '../../@shared/auth.service';
 
-describe('HomeComponent', () => {
+describe('AddCommentComponent', () => {
   let component: AddCommentComponent;
   let fixture: ComponentFixture<AddCommentComponent>;
 
+  const authServiceStub = () => ({
+    loggedInUser: {
+      userId: 4,
+      username: "yoda",
+      status: "online",
+      active: true
+    }
+  });
+  
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
         imports: [
@@ -16,7 +26,10 @@ describe('HomeComponent', () => {
           HttpClientTestingModule
         ],
         declarations: [AddCommentComponent],
-        providers: [QuoteService]
+        providers: [
+          CommentsService,
+          { provide: AuthService, useFactory: authServiceStub }
+        ]
       })
       .compileComponents();
   }));
