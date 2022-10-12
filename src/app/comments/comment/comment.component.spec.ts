@@ -4,7 +4,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { SharedModule } from '@shared';
 import { CommentComponent } from './comment.component';
 import { CommentsService } from '../comments.service';
-import { AuthService } from '../../@shared/auth.service'
+import { AuthService } from '../../@shared/auth.service';
 
 describe('CommentComponent', () => {
   let component: CommentComponent;
@@ -82,10 +82,31 @@ describe('CommentComponent', () => {
         }
       ]
     };
+
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('getDateInfo should works correctly', () => {
+    let date = new Date('2022-06-02T13:49:51.141Z');
+    let dateInfoStr = component.getDateInfo(date);
+    expect(dateInfoStr).toBe('4 months ago');
+
+    date = new Date('2022-09-02T13:49:51.141Z');
+    dateInfoStr = component.getDateInfo(date);
+    expect(dateInfoStr).toBe('1 month ago');
+
+    /*
+    date = new Date('2022-10-02T13:49:51.141Z');
+    dateInfoStr = component.getDateInfo(date);
+    expect(dateInfoStr).toBe('9 days ago');
+
+    date = new Date('2022-10-02T13:49:51.141Z');
+    dateInfoStr = component.getDateInfo(date);
+    expect(dateInfoStr).toBe('9 days ago'); */
+  })
+
 });

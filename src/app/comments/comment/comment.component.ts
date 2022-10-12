@@ -45,15 +45,15 @@ export class CommentComponent implements OnInit {
     let months = Math.floor(duration.asMonths());
 
     if (months > 0) {
-      return months == 1 ? "1 month ago" : months + "months ago";
+      return months == 1 ? "1 month ago" : months + " months ago";
     } else {
       let days = Math.floor(duration.asDays());
       if (days > 0) {
-        return days == 1 ? "1 day ago" : days + "days ago";
+        return days == 1 ? "1 day ago" : days + " days ago";
       } else {
         let hours = Math.floor(duration.asHours());
         if (hours > 0) {
-          return hours == 1 ? "1 hour ago": hours + "hours ago";
+          return hours == 1 ? "1 hour ago": hours + " hours ago";
         } else {
           return commentDate.format('HH:mm:ss');
         }
