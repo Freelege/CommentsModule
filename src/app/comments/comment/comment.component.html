@@ -1,0 +1,50 @@
+<div class="container-fluid comment-area">
+  <div class="row">
+    <div class="col-1 score-area">
+        <div>
+          <button mat-button type="button" class="score-button" (click)="increaseScore()"><span>+</span></button>
+        </div>
+        <div class="score">
+          <span>{{value.score}}</span>
+        </div>
+        <div style="margin-bottom: 18px">
+          <button mat-button type="button" class="score-button" (click)="decreaseScore()"><span>-</span></button>
+        </div>
+      </div>
+
+    <div class="col-8" style="background-color: white;">
+      <div class="row">     
+        <div class="col-10">
+          <img class="img-wrap" src="assets/images/avatars/{{value.user.username}}.png" />
+          <mat-label class="username">{{value.user.username}}</mat-label>
+          <mat-label *ngIf="loggedInUser.userId === value.user.userId" class="user-you">You</mat-label>
+          <mat-label class="date-info">{{dateInfo}}</mat-label>
+        </div>
+        <div class="col-2 action-area" *ngIf="loggedInUser.userId !== value.user.userId">
+          <button mat-button type="button" class="blue-button" (click)="reply()">
+            <i class="fa fa-reply"></i><span>Reply</span>
+          </button>
+        </div>
+        <div class="col-2 action-area" *ngIf="loggedInUser.userId === value.user.userId">
+          <button mat-button type="button" class="red-button" (click)="confirmDeleteComment()">
+            <i class="fa fa-trash"></i><span>Delete</span>
+          </button>
+          <button mat-button type="button" class="blue-button" (click)="editComment()">
+            <i class="fa fa-edit"></i><span>Edit</span>
+          </button>
+        </div>
+      </div>
+      <div class="row"  [ngClass]="{ 'text-area-edit-mode': editMode === true, 'text-area': !editMode }">
+          <div id="commentBox" contenteditable="false" [ngStyle]="{'padding':editMode ? '10px' : '5px' }" #commentBox>
+            <span *ngIf="value.replyingTo" style="color: blue;">@{{replyingTo}}</span>
+            <span id="content" #content>{{value.content}}</span>
+          </div>
+      </div>
+      <div *ngIf="editMode">
+        <button mat-button type="button" class="update-button float-end" (click)="updateComment()">UPDATE</button>
+      </div>
+    </div>
+    <div class="col-3">      
+    </div>
+  </div>
+</div>

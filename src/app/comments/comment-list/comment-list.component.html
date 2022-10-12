@@ -1,0 +1,15 @@
+<div class="container-fluid" #comments>
+  <ng-container *ngIf="commentList.length > 0">
+    <div *ngFor="let item of commentList">
+      <app-comment [value] = 'item' (updateEmitter) = "performOperation($event)"></app-comment>
+      <div *ngIf="item.replies && item.replies.length > 0">
+        <div *ngFor="let reply of item.replies" style="margin-left: 60px; width: calc(100% - 60px);">
+            <app-comment [value] = 'reply' (updateEmitter) = "performOperation($event)"></app-comment>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="commentList.length === 0">
+    <div class="text-center">No comments found</div>
+  </ng-container>  
+</div>

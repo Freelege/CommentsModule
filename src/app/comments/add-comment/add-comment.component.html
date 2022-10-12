@@ -1,0 +1,22 @@
+<div class="container-fluid add-comment">
+  <div class="row">
+    <div class="col-1 avatar-area">
+      <img class="img-wrap" src="assets/images/avatars/{{loggedInUser.username}}.png" />
+    </div>
+
+    <div class="col-7" class="content-area"> 
+        <textarea
+            trim="blur"
+            matInput
+            matTextareaAutosize
+            placeholder="Add a comment"
+            #comment
+        ></textarea>
+    </div>
+
+    <div class="col-1" style="background-color: white;">      
+      <button mat-button type="button" class="send-button float-end" (click)="sendComment()">SEND</button>
+    </div>
+    <div class="col-3"></div>
+  </div>
+</div>

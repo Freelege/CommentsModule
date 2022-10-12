@@ -1,0 +1,37 @@
+{
+  "generator-ngx-rocket": {
+    "version": "11.0.0",
+    "props": {
+      "location": "path",
+      "strict": true,
+      "skipInstall": false,
+      "skipQuickstart": false,
+      "initGit": true,
+      "usePrefix": true,
+      "appName": "frontier-challenge",
+      "target": [
+        "web"
+      ],
+      "ui": "bootstrap",
+      "features": [],
+      "languages": [
+        "en-US"
+      ],
+      "tools": [],
+      "utility": [
+        "moment"
+      ],
+      "deploy": "none",
+      "projectName": "frontier-challenge",
+      "packageManager": "npm",
+      "mobile": [],
+      "desktop": [],
+      "pwa": false,
+      "auth": false,
+      "lazy": false,
+      "e2e": false,
+      "cypress": false,
+      "angulartics": false
+    }
+  }
+}

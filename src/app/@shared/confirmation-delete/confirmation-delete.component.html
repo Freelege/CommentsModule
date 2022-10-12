@@ -1,0 +1,14 @@
+<div class="confirm-deletion-dialog">
+    <div class="mat-modal-header">
+        <h1 mat-dialog-title>{{ modalHeading }}</h1>
+    </div>
+    <mat-dialog-content>
+        <p [innerHTML]="confirmData"></p>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <div>
+            <button type="button" [mat-dialog-close]="result.no" class="btn cancel-button">{{ declineButton }}</button>
+            <button type="button" [mat-dialog-close]="result.yes" cdkFocusInitial class="btn confirm-button">{{ confirmButton }}</button>            
+        </div>
+    </mat-dialog-actions>
+</div>

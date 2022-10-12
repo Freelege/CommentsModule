@@ -1,0 +1,55 @@
+.confirm-deletion-dialog {
+    background-color: white;
+    position: absolute;
+    z-index: 9999;
+    overflow: hidden;
+    opacity: 1;
+    top: 250px;
+    left: 550px;
+
+    @media only screen and (max-width: 1200px) {
+        left: 30px;
+    }
+
+    max-width: 650px;
+    min-width: 300px;
+    width: auto;
+    
+    .mat-modal-header {
+        position: relative;
+        font-size: 14px;
+    }
+
+    .mat-dialog-title {
+        font-size: medium;
+        margin-left: 22px;
+        margin-top: 15px;
+    }
+
+    .mat-dialog-content {
+        font-size: small;
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+
+    .mat-dialog-actions {
+        justify-content: center;
+        margin-bottom: 5px;
+
+        button {
+            font-size: small;
+        }
+
+        .confirm-button {
+            background-color: rgb(203, 28, 28);
+            color: white;
+            margin-left: 1px;
+        }
+
+        .cancel-button {
+            background-color: lightgray;
+            color: black;
+            margin-right: 1px;
+        }
+    }
+}
