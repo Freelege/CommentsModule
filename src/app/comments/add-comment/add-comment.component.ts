@@ -1,4 +1,4 @@
-import { Component, EventEmitter, ViewChild, Output, ElementRef, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, ViewChild, Output, ElementRef, Input, OnInit, AfterViewInit } from '@angular/core';
 import { AuthService } from '../../@shared/auth.service';
 import { User } from '@app/models/user.model';
 import { Comment } from '../../models/comment.model';
@@ -8,7 +8,7 @@ import { Comment } from '../../models/comment.model';
   templateUrl: './add-comment.component.html',
   styleUrls: ['./add-comment.component.scss']
 })
-export class AddCommentComponent implements OnInit {  
+export class AddCommentComponent implements OnInit, AfterViewInit {  
   @ViewChild('comment') commentRef!: ElementRef;
 
   @Input() data: any;
@@ -26,7 +26,12 @@ export class AddCommentComponent implements OnInit {
    ngOnInit() {
     if (this.data?.threadId) {
       this.placeHolder = 'Reply a comment';
-    }
+    }   
+   }
+
+   ngAfterViewInit(): void {
+    this.commentRef.nativeElement.scrollIntoView();
+    this.commentRef.nativeElement.focus();
    }
 
   sendComment = () => {
