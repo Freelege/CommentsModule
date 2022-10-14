@@ -1,13 +1,18 @@
 <div class="container-fluid" #comments>
   <ng-container *ngIf="commentList.length > 0">
     <div *ngFor="let item of commentList">
-      <app-comment [value] = 'item' (updateEmitter) = "performOperation($event)"></app-comment>
+      <app-comment [value] = 'item' (updateEmitter)="performOperation($event)"></app-comment>
       <div *ngIf="item.replies && item.replies.length > 0">
         <div *ngFor="let reply of item.replies" style="margin-left: 60px; width: calc(100% - 60px);">
-            <app-comment [value] = 'reply' (updateEmitter) = "performOperation($event)"></app-comment>
+            <app-comment [value]='reply' (updateEmitter)="performOperation($event)"></app-comment>
         </div>
       </div>
+      <div *ngIf="item.isBeingReplied" style="margin-left: 60px; width: calc(100% - 60px);">
+        <app-add-comment [data]="item.beingRepliedInfo" (updateEmitter)="performOperation($event)"></app-add-comment>
+      </div>
     </div>
+    <div class="margin-top-80"></div>
+    <app-add-comment (updateEmitter)="performOperation($event)"></app-add-comment>
   </ng-container>
   <ng-container *ngIf="commentList.length === 0">
     <div class="text-center">No comments found</div>

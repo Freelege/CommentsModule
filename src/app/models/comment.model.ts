@@ -9,4 +9,12 @@ export interface Comment {
     score: number;
     user: User;
     replies: Comment[] | undefined;
+    
+    isBeingReplied: boolean; //Someone is replying this thread
+    beingRepliedInfo: ReplyingInfo | undefined; 
+}
+
+export interface ReplyingInfo {
+    threadId: number;
+    replyingTo: string;
 }

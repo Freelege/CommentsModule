@@ -91,6 +91,7 @@ export class CommentComponent implements OnInit {
   }
 
   reply = () => {
+    this.value.isBeingReplied = true;
     this.updateEmitter.emit({ 
       action: 'reply', 
       data: {

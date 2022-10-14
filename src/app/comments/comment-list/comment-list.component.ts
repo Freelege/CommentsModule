@@ -15,6 +15,8 @@ export class CommentListComponent implements OnInit {
 
   commentList: Comment[] = [];
 
+  reply: any;
+
   constructor( private commentsService: CommentsService, private dialog: MatDialog) { }
 
   ngOnInit() {
@@ -126,17 +128,14 @@ export class CommentListComponent implements OnInit {
   }
 
   replyComment = ($event: any) => {
-    const dialogRef = this.dialog.open(AddCommentComponent, 
-    {
-      data: {
+    let index = this.commentList.findIndex(x => x.id === $event.data.threadId); //get which thread is being replied
+    if (index !== -1) {
+      this.commentList[index].isBeingReplied = true;
+      this.commentList[index].beingRepliedInfo = {
         threadId: $event.data.threadId,
         replyingTo: $event.data.replyingTo
       }
-    });       
-    
-    dialogRef.componentInstance.updateEmitter.subscribe(data => {
-      this.performOperation(data);      
-    });
+    }
   }
 
   addComment = ($event: any) => {
@@ -155,6 +154,7 @@ export class CommentListComponent implements OnInit {
         } else {
           threadRoot.replies = [$event.data];
         }
+        threadRoot.isBeingReplied = false;
       }
     }
   }

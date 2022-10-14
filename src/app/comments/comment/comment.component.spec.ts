@@ -63,7 +63,9 @@ describe('CommentComponent', () => {
           },
           threadId: 2,
           replyingTo: "lukeskywalker",
-          replies: undefined
+          replies: undefined,
+          isBeingReplied: false,
+          beingRepliedInfo: undefined
         },
         {
           id: 4,
@@ -78,9 +80,13 @@ describe('CommentComponent', () => {
           },
           threadId: 2,
           replyingTo: "vader",
-          replies: undefined
+          replies: undefined,
+          isBeingReplied: false,
+          beingRepliedInfo: undefined
         }
-      ]
+      ],
+      isBeingReplied: false,
+      beingRepliedInfo: undefined
     };
 
     fixture.detectChanges();

@@ -30,7 +30,9 @@ describe('CommentService', () => {
           },
           threadId: undefined,
           replyingTo: undefined,
-          replies: undefined
+          replies: undefined,
+          isBeingReplied: false,
+          beingRepliedInfo: undefined
         },
         {
           id: 2,
@@ -59,7 +61,9 @@ describe('CommentService', () => {
               },
               threadId: 2,
               replyingTo: "lukeskywalker",
-              replies: undefined
+              replies: undefined,
+              isBeingReplied: false,
+              beingRepliedInfo: undefined
             },
             {
               id: 4,
@@ -74,9 +78,13 @@ describe('CommentService', () => {
               },
               threadId: 2,
               replyingTo: "vader",
-              replies: undefined
+              replies: undefined,
+              isBeingReplied: false,
+              beingRepliedInfo: undefined
             }
-          ]
+          ],
+          isBeingReplied: false,
+          beingRepliedInfo: undefined
         }
       ];
 

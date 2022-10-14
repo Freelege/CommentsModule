@@ -1,25 +1,22 @@
 .add-comment {
   max-width: 75vw;
-  position: absolute;
-  margin-left: 220px;
+  margin-bottom: 50px;
 
-  @media only screen and (max-width: 1600px) {
-    margin-left: 60px;
-    max-width: 100vw;
+  .responsive-col {
+    display: block;
   }
 
   @media only screen and (max-width: 1200px) {
-    width: 30px;
     max-width: 100vw;
+
+    .responsive-col {
+      display: none;
+    }
   }
 
   .avatar-area {
     background-color: white;
-    margin-right: -60px;
-
-    @media only screen and (max-width: 1200px) {
-      margin-right: 60px;
-    }
+    width: 80px;
 
     .img-wrap {
       margin-top: 15px;
@@ -27,7 +24,7 @@
       max-width: 60px;
 
       img {
-          max-width: 100%;
+          min-width: 100%;
           width: 100%;
       }
     }    
@@ -35,41 +32,30 @@
   
   .content-area {
     background-color: white;
-    width: 875px;
-
-    @media only screen and (max-width: 1600px) {
-      width: 500px;
-    }
-
-    @media only screen and (max-width: 1200px) {
-      width: 200px;
-    }
 
     textarea {  
-      margin: 15px;
-      padding: 10px;
-      border:1px solid lightgrey;    
-      background-color: transparent;
-      height: 120px;
-      width: 820px;
-
-      @media only screen and (max-width: 1600px) {
-        width: 500px;
-      }
-
-      @media only screen and (max-width: 1200px) {
-        width: 200px;
-      }
-      
+      margin: 15px 15px 15px -5px;
+      padding: 10px;       
+      max-width: 100%;  //to make textarea responsive
+      box-sizing: border-box;
+      border:1px solid lightgrey;   
+      resize: none;
       overflow:hidden;
     }
   }
 
-  .send-button {
-    background-color: #2d3ed4;
-    color: white;
-    font-size: small;
-    margin: 15px;
+  .action-area {
+    background-color: white;
+    width: 90px;
+    .send-button {
+      background-color: #2d3ed4;
+      color: white;
+      font-size: small;
+      margin: 15px 12px 15px 0;
+      &:disabled {
+        opacity: 0.5;
+      }
+    }
   }
 }
 

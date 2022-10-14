@@ -24,7 +24,9 @@ export class CommentsService {
         },
         threadId: undefined,
         replyingTo: undefined,
-        replies: undefined
+        replies: undefined,
+        isBeingReplied: false,
+        beingRepliedInfo: undefined
       },
       {
         id: 2,
@@ -53,7 +55,9 @@ export class CommentsService {
             },
             threadId: 2,
             replyingTo: "lukeskywalker",
-            replies: undefined
+            replies: undefined,
+            isBeingReplied: false,
+            beingRepliedInfo: undefined
           },
           {
             id: 4,
@@ -68,9 +72,13 @@ export class CommentsService {
             },
             threadId: 2,
             replyingTo: "vader",
-            replies: undefined
+            replies: undefined,
+            isBeingReplied: false,
+            beingRepliedInfo: undefined
           }
-        ]
+        ],
+        isBeingReplied: false,
+        beingRepliedInfo: undefined
       }
     ];
         
