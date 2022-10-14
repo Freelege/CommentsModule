@@ -1,19 +1,20 @@
 .confirm-deletion-dialog {
     background-color: white;
-    position: absolute;
+    position: fixed;  //Position the Dialog in fixed position of the screen (not scrolling with backdrop)
     z-index: 9999;
+    width: auto;
     overflow: hidden;
-    opacity: 1;
     top: 250px;
     left: 550px;
 
     @media only screen and (max-width: 1200px) {
-        left: 30px;
+        left: 250px;
     }
 
-    max-width: 650px;
-    min-width: 300px;
-    width: auto;
+    @media only screen and (max-width: 600px) {
+        left: 30px;
+        max-width: 380px;
+    }
     
     .mat-modal-header {
         position: relative;

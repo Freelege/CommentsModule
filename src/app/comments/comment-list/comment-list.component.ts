@@ -90,10 +90,12 @@ export class CommentListComponent implements OnInit {
   }
 
   deleteComment = ($event: any) => {
-    this.commentListRef.nativeElement.setAttribute('style', 'pointer-events: none; opacity: 0.5');
+    this.commentListRef.nativeElement.setAttribute('style', 'pointer-events: none; opacity: 0.3');
     const dialogRef = this.dialog.open(ConfirmationDeleteComponent, 
     {
       disableClose: true,
+      autoFocus: "false",  //stop the screen scrolling to the first focusable element on the page when opening the dialog     
+      hasBackdrop: true,      
       data: {
         heading: "Delete Comment",
         body: "Are you sure you want to delete this comment? This will remove the comment and can't be undone.",
