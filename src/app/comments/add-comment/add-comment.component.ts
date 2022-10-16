@@ -31,7 +31,9 @@ export class AddCommentComponent implements OnInit, AfterViewInit {
 
    ngAfterViewInit(): void {
     this.commentRef.nativeElement.scrollIntoView();
-    this.commentRef.nativeElement.focus();
+    if (this.data?.thread) {
+      this.commentRef.nativeElement.focus();
+    }
    }
 
   sendComment = () => {

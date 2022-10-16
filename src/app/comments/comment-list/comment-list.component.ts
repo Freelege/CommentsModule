@@ -1,3 +1,4 @@
+import { Component, ViewChild, OnInit, ElementRef, AfterViewInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Comment } from '../../models/comment.model';
 import { CommentsService } from '../comments.service';
@@ -9,7 +10,7 @@ import { AddCommentComponent } from '../add-comment/add-comment.component';
   templateUrl: './comment-list.component.html',
   styleUrls: ['./comment-list.component.scss']
 })
-export class CommentListComponent implements OnInit {
+export class CommentListComponent implements OnInit, AfterViewInit {
   @ViewChild('comments') commentListRef!: ElementRef;
 
   commentList: Comment[] = [];
@@ -21,6 +22,10 @@ export class CommentListComponent implements OnInit {
   ngOnInit() {
     this.loadData();
     this.commentList = this.sortCommentList(this.commentList);
+  }
+
+  ngAfterViewInit(): void {    
+    this.commentListRef.nativeElement.scrollIntoView(true);  //Keep the initial view of the list on top
   }
 
   loadData = () => {
