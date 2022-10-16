@@ -34,7 +34,7 @@
             ],
             "styles": [
               "src/main.scss",
-              "src/style.scss"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -104,7 +104,8 @@
             "karmaConfig": "karma.conf.js",
             "scripts": [],
             "styles": [
-              "src/main.scss"
+              "src/main.scss",
+              "src/styles.scss"
             ],
             "assets": [
               "src/favicon.ico",
