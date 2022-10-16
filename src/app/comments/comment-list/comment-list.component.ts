@@ -1,4 +1,3 @@
-import { Component, ViewChild, OnInit, ElementRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Comment } from '../../models/comment.model';
 import { CommentsService } from '../comments.service';
@@ -90,7 +89,6 @@ export class CommentListComponent implements OnInit {
   }
 
   deleteComment = ($event: any) => {
-    this.commentListRef.nativeElement.setAttribute('style', 'pointer-events: none; opacity: 0.3');
     const dialogRef = this.dialog.open(ConfirmationDeleteComponent, 
     {
       disableClose: true,
@@ -124,8 +122,6 @@ export class CommentListComponent implements OnInit {
           }
         }
       }
-
-      this.commentListRef.nativeElement.setAttribute('style', 'pointer-events: all; opacity: 1');
     });
   }
 

@@ -21,7 +21,6 @@ import { AuthService } from './auth.service';
     ConfirmationDeleteComponent
   ],
   exports: [
-    MaterialModule,
     LoaderComponent,
     ConfirmationDeleteComponent
   ],
