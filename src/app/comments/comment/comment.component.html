@@ -18,7 +18,7 @@
           <img class="img-wrap" src="assets/images/avatars/{{value.user.username}}.png" />
           <mat-label class="username">{{value.user.username}}</mat-label>
           <mat-label *ngIf="loggedInUser.userId === value.user.userId" class="user-you">You</mat-label>
-          <mat-label class="date-info">{{dateInfo}}</mat-label>
+          <mat-label class="date-info">{{value.createdAt | dateInfo}}</mat-label>
         </div>
         <div class="col-2 action-area" *ngIf="loggedInUser.userId !== value.user.userId">
           <button mat-button type="button" class="blue-button" (click)="reply()">

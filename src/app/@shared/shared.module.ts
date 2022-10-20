@@ -5,6 +5,7 @@ import { MaterialModule } from './material-module';
 import { LoaderComponent } from './loader/loader.component';
 import { ConfirmationDeleteComponent } from './confirmation-delete/confirmation-delete.component';
 import { AuthService } from './auth.service';
+import { DateInfoPipe } from './pipes/dateInfo.pipe'
 
 @NgModule({
   imports: [
@@ -18,11 +19,13 @@ import { AuthService } from './auth.service';
 
   declarations: [
     LoaderComponent,
-    ConfirmationDeleteComponent
+    ConfirmationDeleteComponent,
+    DateInfoPipe
   ],
   exports: [
     LoaderComponent,
-    ConfirmationDeleteComponent
+    ConfirmationDeleteComponent,
+    DateInfoPipe
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   entryComponents: [

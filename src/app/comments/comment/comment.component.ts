@@ -1,11 +1,8 @@
 import { Component, EventEmitter, ViewChild, Input, Output, OnInit, ElementRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ConfirmationDeleteComponent } from '../../@shared/confirmation-delete/confirmation-delete.component';
 import { AuthService } from '../../@shared/auth.service';
 import { User } from '@app/models/user.model';
 import { Comment } from '../../models/comment.model';
-import moment from 'moment';
-
 @Component({
   selector: 'app-comment',
   templateUrl: './comment.component.html',
@@ -25,40 +22,14 @@ export class CommentComponent implements OnInit {
 
   loggedInUser: User;
 
-  dateInfo: string = '';
-
   replyingTo: string | undefined = '';
 
   constructor(private auth: AuthService, private dialog: MatDialog) {
     this.loggedInUser = auth.loggedInUser;
    }
 
-  ngOnInit() {    
-    this.dateInfo = this.getDateInfo(this.value.createdAt); 
+  ngOnInit() {     
     this.replyingTo = this.value.replyingTo + ' ';
-  }
-
-  getDateInfo = (date: Date): string => {
-    let now = moment(new Date());
-    let commentDate = moment(date);
-    let duration = moment.duration(now.diff(commentDate));
-    let months = Math.floor(duration.asMonths());
-
-    if (months > 0) {
-      return months == 1 ? "1 month ago" : months + " months ago";
-    } else {
-      let days = Math.floor(duration.asDays());
-      if (days > 0) {
-        return days == 1 ? "1 day ago" : days + " days ago";
-      } else {
-        let hours = Math.floor(duration.asHours());
-        if (hours > 0) {
-          return hours == 1 ? "1 hour ago": hours + " hours ago";
-        } else {
-          return commentDate.format('HH:mm:ss');
-        }
-      }
-    }
   }
 
   editComment = () => {
